@@ -314,7 +314,7 @@ public class LSPManagerService extends ILSPManagerService.Stub {
 
     // return true to inject manager
     synchronized boolean shouldStartManager(int pid, int uid, String processName) {
-        if (uid != BuildConfig.MANAGER_INJECTED_UID || !BuildConfig.MANAGER_INJECTED_PKG_NAME.equals(processName) || !pendingManager)
+        if (!BuildConfig.MANAGER_INJECTED_PKG_NAME.equals(processName) || !pendingManager)
             return false;
         // pending parasitic manager launch it processes
         // now we have its pid so we allow it to be killed
